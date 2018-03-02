@@ -1,0 +1,34 @@
+version: '2'
+
+services:
+  db:
+    container_name: petutility-db
+    image: "postgres:9.6"
+    environment:
+      - POSTGRES_USER=pet
+      - POSTGRES_PASSWORD=petutility!
+      - POSTGRES_DB=database
+    ports:
+      - "5432:5432"
+  api:
+    container_name: petutility-api
+    build: ./api
+    volumes:
+      - ./petutility-api:/www
+    depends_on:
+      - db
+    ports:
+      - "3000:3000"
+    env_file:
+      - api.env
+  web:
+    container_name: petutility-web
+    build: ./web
+    volumes:
+      - ./petutility-web:/www
+    depends_on:
+      - api
+    ports:
+      - "80:3000"
+    env_file:
+      - web.env
