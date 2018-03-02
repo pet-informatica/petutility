@@ -14,7 +14,7 @@ services:
     container_name: petutility-api
     build: ./api
     volumes:
-      - ./petutility-api:/www
+      - ./api:/www
     depends_on:
       - db
     ports:
@@ -25,7 +25,7 @@ services:
     container_name: petutility-web
     build: ./web
     volumes:
-      - ./petutility-web:/www
+      - ./web:/www
     depends_on:
       - api
     ports:
