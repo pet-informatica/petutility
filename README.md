@@ -12,4 +12,10 @@ CLOUDINARY_URL=<cloudinary_url>
 DATABASE_URL=postgres://pet:petutility!@db:5432/database
 PORT=3000
 COOKIE_SECRET=secret
+FRONT_URL=http://localhost
+```
+
+## web.env
+
+```
 ```
